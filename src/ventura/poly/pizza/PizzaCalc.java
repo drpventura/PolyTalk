@@ -19,10 +19,10 @@ public class PizzaCalc {
 //	}
 	
 	public static void main(String[] args) throws ClassNotFoundException {
+		// TODO: Add GUI for this
 		Scanner stdin = new Scanner(System.in);
 		System.out.print("Enter shape class: ");
 		String shapeName = stdin.next();
-
 		Class clazz = Util.findShapeClass(shapeName);
 		System.out.println(clazz);
 		Util.findDoubleConstructor(clazz)
