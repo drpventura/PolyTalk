@@ -29,6 +29,7 @@ public class Sorting {
 
 		// Sort (polymorphically) in reverse lexicographical order
 		// using Java 8 lambda
+
 		Collections.sort(names, (s1, s2) -> {
 			return s2.compareTo(s1);
 		});			
