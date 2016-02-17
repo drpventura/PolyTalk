@@ -13,4 +13,9 @@ public class Rectangle implements IShape {
 	public double area() {
 		return _width * _height;
 	}
+	
+	@Override
+	public String toString() {
+		return "Rectangle: " + _width + "x" + _height;
+	}
 }

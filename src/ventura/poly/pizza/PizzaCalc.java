@@ -2,6 +2,7 @@ package ventura.poly.pizza;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PizzaCalc {
@@ -24,16 +25,9 @@ public class PizzaCalc {
 
 		Class clazz = Util.findShapeClass(shapeName);
 		System.out.println(clazz);
-		Constructor[] constructors = clazz.getConstructors();
-		for (Constructor con : constructors) {
-			Type[] paramTypes = con.getParameterTypes();
-			System.out.println(con);
-			for (Type t : paramTypes) {
-				System.out.print(t.getClass().getName());
-				System.out.print(' ');
-			}
-			System.out.println();
-		}
+		Util.findDoubleConstructor(clazz)
+			.ifPresent(constr -> System.out.println(Arrays.asList(Util.getParameterNames(constr))));
+
 	}
 
 }
