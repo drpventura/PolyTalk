@@ -7,54 +7,38 @@ import java.util.List;
 
 public class Sorting {
 	public static void main(String[] args) {
-//		ArrayList<String> names =
-//				new ArrayList<String>();
-//		names.add("James");
-//		names.add("Emil");
+
 		List<String> names = 
 				Arrays.asList("Samantha", "Max", "Cecelia");
 		System.out.println("Original list: " + names);
 
-//		Collections.sort(names, new ReverseStringCompare());
-//		Collections.sort(names, new Comparator<String>() {
-//			@Override
-//			public int compare(String o1, String o2) {
-//				return o2.compareTo(o1);
-//			}			
-//		});
-		Collections.sort(names, (o1, o2) -> {
-			return o2.compareTo(o1);
+		// default sort using String compare method
+		Collections.sort(names);
+		System.out.println("\nDefault sort: " + names);
+
+		// Sort (polymorphically) in reverse lexicographic order
+		// using anonymous inner-class
+		Collections.sort(names, new Comparator<String>() {
+			@Override
+			public int compare(String s1, String s2) {
+				// just switching the order of comparison
+				return s2.compareTo(s1);
+			}			
 		});
-		System.out.println("\nDefault sort");
-		for (String n : names) {
-			System.out.println(n);
-		}
-		System.out.println("\nSorted reverse lexicographically");
-		for (String n : names) {
-			System.out.println(n);
-		}
-		
-//		Collections.sort(names, (o1, o2) -> {
-//			if (o1.length() < o2.length()) {
-//				return -1;
-//				
-//			}
-//			else if (o2.length() < o1.length()) {
-//				return 1;
-//			}
-//			else {
-//				return 0;
-//			}
-//		});
+		System.out.println("\nSorted reverse lexicographically: " + names);
 
-		Collections.sort(names, (o1, o2) -> {
-			return o1.length() - o2.length();
-	});
+		// Sort (polymorphically) in reverse lexicographical order
+		// using Java 8 lambda
+		Collections.sort(names, (s1, s2) -> {
+			return s2.compareTo(s1);
+		});			
+		System.out.println("\nLambda sorted reverse lexicographically: " + names);
 
-		System.out.println("\nSorted by length");
-		for (String n : names) {
-			System.out.println(n);
-		}
-		
+		// Sort (polymorphically) on length
+		Collections.sort(names, (s1, s2) -> {
+			return s1.length() - s2.length();
+		});
+		System.out.println("\nSorted by length: " + names);
+
 	}
 }
