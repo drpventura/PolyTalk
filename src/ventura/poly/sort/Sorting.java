@@ -12,10 +12,8 @@ public class Sorting {
 //		names.add("James");
 //		names.add("Emil");
 		List<String> names = 
-				Arrays.asList("James", "Nibal", "Emil");
-		for (String n : names) {
-			System.out.println(n);
-		}
+				Arrays.asList("Samantha", "Max", "Cecelia");
+		System.out.println("Original list: " + names);
 
 //		Collections.sort(names, new ReverseStringCompare());
 //		Collections.sort(names, new Comparator<String>() {
