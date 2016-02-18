@@ -11,5 +11,10 @@ public class Circle implements Shape {
 	public double getArea() {
 		return Math.PI * _radius * _radius;
 	}
+	
+	@Override
+	public String toString() {
+		return "Circle: diameter " + 2 * _radius;
+	}
 
 }

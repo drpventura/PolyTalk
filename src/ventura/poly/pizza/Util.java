@@ -1,11 +1,13 @@
 package ventura.poly.pizza;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Parameter;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 
 /**
  * Static utility methods that hide reflection voodoo.
@@ -72,5 +74,48 @@ public class Util {
 		return Arrays.asList(constr.getParameters()).stream()
 					.map(Parameter::getName)
 					.toArray(String[]::new);
+	}
+	
+	/**
+	 * Given the name of a shape class (in this package),
+	 * prompt for the constructor parameters and 
+	 * create and return a new instance.
+	 * @param className the name of a shape class (in this package)
+	 * @return an initialized instance of the named shape class.
+	 * @throws NoSuchMethodException
+	 */
+	static Shape makeShape(String className) throws NoSuchMethodException {
+		try {
+			Class<?> clazz = Util.findShapeClass(className);
+			Constructor<?> constr = Util.findDoubleConstructor(clazz).orElseThrow(NoSuchMethodException::new);
+			Scanner stdin = new Scanner(System.in);
+			
+			Object[] params = 
+					Arrays.asList(Util.getParameterNames(constr)).stream()
+						.map(paramName -> {
+								System.out.print("Enter " + paramName + ": ");
+								return stdin.nextDouble();
+						})
+						.toArray();
+			return (Shape) constr.newInstance(params);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+
+		//		for (String paramName : Util.getParameterNames(constr)) {
+//			System.out.print("Enter " + paramName + ": ");
+//			
+//		}
+		
 	}
 }

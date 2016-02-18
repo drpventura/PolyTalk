@@ -26,15 +26,24 @@ public class PizzaCalc {
 		}
 	}
 	
-	public static void main(String[] args) throws ClassNotFoundException {
+	public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException {
 		Scanner stdin = new Scanner(System.in);
 		System.out.print("First pizza shape: ");
 		String shapeName = stdin.next();
-		Class clazz = Util.findShapeClass(shapeName);
-		System.out.println(clazz);
-		Util.findDoubleConstructor(clazz)
-			.ifPresent(constr -> System.out.println(Arrays.asList(Util.getParameterNames(constr))));
+		Shape shape = Util.makeShape(shapeName);
+		System.out.print("First pizza price: ");
+		double price = stdin.nextDouble();
+		Pizza p1 = new Pizza(price, shape);
 
+		System.out.print("\nSecond pizza shape: ");
+		shapeName = stdin.next();
+		shape = Util.makeShape(shapeName);
+		System.out.print("Second pizza price: ");
+		price = stdin.nextDouble();
+		Pizza p2 = new Pizza(price, shape);
+		
+		PizzaCalc pizCalc = new PizzaCalc(p1, p2);
+		pizCalc.whichIsBetter();
 	}
 
 }
