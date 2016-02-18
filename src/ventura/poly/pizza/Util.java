@@ -7,6 +7,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Static utility methods that hide reflection voodoo.
+ * 
+ * @author Phil Ventura, Ph.D. (venturap@palmbeachstate.edu)
+ *
+ */
 public class Util {
 	/**
 	 * The (String) name of the package that this code is in.
