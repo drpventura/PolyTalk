@@ -15,7 +15,7 @@ import javax.swing.Icon;
  *
  */
 public class MarsIcon implements Icon {
-
+	
 	private int _size;
 	
 	public MarsIcon(int size) {
@@ -32,15 +32,14 @@ public class MarsIcon implements Icon {
 		g2.setColor(Color.RED);
 		g2.fill(planet);
 	}
-
+	
 	@Override
 	public int getIconWidth() {
-		return _size;
+		return _size;	
 	}
-
+	
 	@Override
 	public int getIconHeight() {
 		return _size;
 	}
-
 }

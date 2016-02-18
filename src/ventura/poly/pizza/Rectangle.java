@@ -1,6 +1,6 @@
 package ventura.poly.pizza;
 
-public class Rectangle implements IShape {
+public class Rectangle implements Shape {
 	private double _width;
 	private double _height;
 	
@@ -10,7 +10,7 @@ public class Rectangle implements IShape {
 	}
 
 	@Override
-	public double area() {
+	public double getArea() {
 		return _width * _height;
 	}
 	

@@ -14,14 +14,21 @@ public class PizzaCalc {
 		_pizza2 = p2;
 	}
 	
-//	public Pizza bestDeal() {
-//		
-//	}
+	public void whichIsBetter() {
+		if (_pizza1.pricePerSqInch() < _pizza2.pricePerSqInch()) {
+			System.out.println("Pizza 1 is the better deal");
+		}
+		else if (_pizza2.pricePerSqInch() < _pizza1.pricePerSqInch()) {
+			System.out.println("Pizza 2 is the better deal");
+		}
+		else {
+			System.out.println("Same value.");
+		}
+	}
 	
 	public static void main(String[] args) throws ClassNotFoundException {
-		// TODO: Add GUI for this
 		Scanner stdin = new Scanner(System.in);
-		System.out.print("Enter shape class: ");
+		System.out.print("First pizza shape: ");
 		String shapeName = stdin.next();
 		Class clazz = Util.findShapeClass(shapeName);
 		System.out.println(clazz);

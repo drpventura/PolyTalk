@@ -12,7 +12,7 @@ public class Sorting {
 				Arrays.asList("Samantha", "Max", "Cecelia");
 		System.out.println("Original list: " + names);
 
-		// default sort using String compare method
+		// default sort
 		Collections.sort(names);
 		System.out.println("\nDefault sort: " + names);
 

@@ -17,10 +17,10 @@ public class IconEx {
 				JOptionPane.ERROR_MESSAGE,
 				new ImageIcon(IconEx.class.getResource("/images/CC.jpg")));
 		
-		JOptionPane.showMessageDialog(null, 
-				"Hello, world!",
-				"Custom Icon Demo",
-				JOptionPane.ERROR_MESSAGE,
-				new MarsIcon(50));
+//		JOptionPane.showMessageDialog(null, 
+//				"Hello, world!",
+//				"Custom Icon Demo",
+//				JOptionPane.ERROR_MESSAGE,
+//				new MarsIcon(50));
 	}
 }
